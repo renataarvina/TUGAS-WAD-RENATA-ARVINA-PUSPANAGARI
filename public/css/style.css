@@ -1,0 +1,590 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+:root {
+    --primary: #2a81f6;
+    --primary-dark: #1b62c4;
+    --black: #111111;
+    --bg: #ffffff;
+    --gray-light: #f4f5f7;
+    --text-muted: #555555;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg);
+    color: var(--black);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    transition: color 0.3s, background-color 0.3s, transform 0.2s;
+}
+
+/* HEADER DAN NAVIGASI */
+header {
+    background-color: var(--bg);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.border-LaundryIn {
+    padding: 0;
+    border: none;
+    background: transparent;
+    flex-shrink: 0;
+}
+
+header h2 {
+    margin: 0;
+    color: var(--black);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary);
+}
+
+.disabled-link {
+    color: #9aa0a6;
+    font-weight: 600;
+    cursor: not-allowed;
+}
+
+/* KONTEN UTAMA */
+main {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 2rem 0;
+    margin-bottom: 1.5rem;
+}
+
+section h1 {
+    margin: 0.75rem 0 1rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+section h2 {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+section p {
+    color: var(--text-muted);
+}
+
+.pembuka {
+    padding: 2.75rem 0 1rem;
+}
+
+.section-label {
+    margin: 0 0 0.5rem;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.section-description {
+    max-width: 750px;
+}
+
+/* DAFTAR BAHAN PADA BERANDA */
+.bahan-item,
+.stok-card {
+    background: var(--bg);
+    border: 2px solid var(--gray-light);
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.bahan-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.bahan-item:hover,
+.stok-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(42, 129, 246, 0.1);
+}
+
+.nomor {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.bahan-text h2 {
+    margin-top: 0;
+}
+
+.bahan-text p {
+    margin-bottom: 0;
+}
+
+/* KARTU RINGKASAN STOK */
+.stok {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.stok-card {
+    margin: 0;
+}
+
+.stok-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.jumlah {
+    color: var(--primary) !important;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.stok-card .status {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+/* FORM TAMBAH BAHAN */
+.form-section form:not(.form-hapus) {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+    padding: 1.75rem;
+    margin: 1.5rem 0;
+    background: #ffffff;
+    border: 2px solid var(--gray-light);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.form-section form p {
+    margin: 0 0 1.25rem;
+}
+
+.form-section form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-section form input,
+.form-section form select {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid #d5d9df;
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--black);
+    font: inherit;
+}
+
+.form-section form input:focus,
+.form-section form select:focus {
+    outline: 2px solid rgba(42, 129, 246, 0.2);
+    border-color: var(--primary);
+}
+
+/* TOMBOL */
+.button-tambah,
+.button-bahan,
+.button-supplier {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: var(--primary);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-tambah:hover,
+.button-bahan:hover,
+.button-supplier:hover {
+    background: var(--primary-dark);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* TABEL BAHAN DAN SUPPLIER */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+    border-radius: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+th {
+    padding: 1rem;
+    background: var(--primary);
+    color: #ffffff;
+    text-align: left;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #e8ebef;
+    font-size: 0.9rem;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f5f8ff;
+}
+
+.data-kosong {
+    padding: 1.5rem;
+    color: #777777;
+    text-align: center;
+}
+
+/* STATUS STOK */
+.status-tersedia,
+.status-habis {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-tersedia {
+    background: #e4f7eb;
+    color: #187744;
+}
+
+.status-habis {
+    background: #fde8e8;
+    color: #b42332;
+}
+
+/* KOLOM AKSI DAN TOMBOL HAPUS */
+.kolom-aksi {
+    min-width: 100px;
+    white-space: nowrap;
+}
+
+.btn-danger {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background: #dc3545;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-danger:hover {
+    background: #b02a37;
+    color: #ffffff;
+}
+
+/* PESAN BERHASIL ATAU GAGAL */
+.status-pesan {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: #e4f7eb;
+    color: #187744;
+    font-weight: 600;
+}
+
+.status-error {
+    background: #fde8e8;
+    color: #b42332;
+}
+
+/* FOOTER */
+footer {
+    margin-top: auto;
+    padding: 2.5rem 5%;
+    background: var(--primary);
+    color: #ffffff;
+    text-align: center;
+}
+
+footer p {
+    margin: 0.3rem 0;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+/* RESPONSIVE UNTUK TABLET DAN HP */
+@media (max-width: 768px) {
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 1.25rem 5%;
+    }
+
+    nav {
+        gap: 0.75rem 1rem;
+    }
+
+    .stok {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    section h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    .form-section form:not(.form-hapus) {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .bahan-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    th,
+    td {
+        padding: 0.75rem;
+    }
+}
+
+
+/* Tombol aksi pada tabel bahan */
+.kolom-aksi {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.kolom-aksi form {
+    margin: 0;
+}
+
+.kolom-aksi .button-supplier {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #159a9c;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.kolom-aksi .button-supplier:hover {
+    background-color: #117d7f;
+}
+
+.kolom-aksi .btn-danger {
+    padding: 8px 14px;
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.kolom-aksi .btn-danger:hover {
+    background-color: #b02a37;
+}
+
+
+/* ===== HALAMAN EDIT BAHAN ===== */
+
+.form-section {
+    max-width: 760px;
+    margin: 30px auto 50px;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #d9f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(36, 59, 83, 0.07);
+}
+
+.form-section h2 {
+    color: #243b53;
+    margin: 8px 0 24px;
+}
+
+.form-section form p {
+    margin-bottom: 20px;
+}
+
+.form-section label {
+    display: block;
+    margin-bottom: 8px;
+    color: #243b53;
+    font-weight: 600;
+}
+
+.form-section input,
+.form-section select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #243b53;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-section input:focus,
+.form-section select:focus {
+    border-color: #159a9c;
+    box-shadow: 0 0 0 3px rgba(21, 154, 156, 0.13);
+}
+
+.aksi-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.aksi-form .button-tambah,
+.aksi-form .button-batal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 42px;
+    padding: 11px 20px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.aksi-form .button-tambah {
+    border: 1px solid #159a9c;
+    background-color: #159a9c;
+    color: #ffffff;
+}
+
+.aksi-form .button-tambah:hover {
+    background-color: #117d7f;
+}
+
+.aksi-form .button-batal {
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #243b53;
+}
+
+.aksi-form .button-batal:hover {
+    background-color: #f5f9fa;
+    border-color: #159a9c;
+}
+
+@media (max-width: 600px) {
+    .form-section {
+        margin: 20px 12px 35px;
+        padding: 20px;
+    }
+
+    .aksi-form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .aksi-form .button-tambah,
+    .aksi-form .button-batal {
+        width: 100%;
+    }
+}
