@@ -10,48 +10,60 @@
 
 <body>
 
-<header>
-    <div class="border-LaundryIn">
-        <h2>Laundry-In</h2>
+
+<header class="navbar">
+
+    <!-- LOGO LAUNDRY-IN -->   
+    <div class="navbar-logo">
+        <a href="/" class="logo">
+            <span class="logo-icon"></span>
+            Laundry-In
+        </a>
     </div>
 
-    <nav>
+    <!-- MENU NAVIGASI -->
+    <nav class="nav-menu">
         <a href="{{ route('home') }}">Beranda</a>
-        <a href="{{ route('bahan.index') }}" class="active">Bahan Pembersih</a>
+
+        <a href="{{ route('bahan.index') }}" class="active">
+            Bahan Pembersih
+        </a>
+
         <span class="disabled-link">Layanan &amp; Tarif</span>
         <span class="disabled-link">Peralatan</span>
         <span class="disabled-link">Data Pelanggan</span>
+    </nav>
 
-        <!-- Identitas pengguna -->
-        <span style="margin-left: 15px; color: #243b53;">
-            {{ Auth::user()->name }}
-        </span>
+    <!-- IDENTITAS PENGGUNA -->
+    <div class="user-info">
 
-        <span style="padding: 5px 10px;
-                     background: #e8f7f0;
-                     color: #16734b;
-                     border-radius: 5px;
-                     font-size: 13px;">
-            {{ ucfirst(Auth::user()->role) }}
-        </span>
+        <div class="user-avatar">
+            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+        </div>
 
-        <!-- Tombol Logout -->
-        <form action="{{ route('logout') }}" method="POST"
-              style="display: inline;">
+        <div class="user-detail">
+            <span class="user-name">
+                {{ Auth::user()->name }}
+            </span>
+
+            <span class="user-role">
+                {{ ucfirst(Auth::user()->role) }}
+            </span>
+        </div>
+
+        <!-- LOGOUT -->
+        <form action="{{ route('logout') }}" method="POST">
             @csrf
 
-            <button type="submit"
-                    style="padding: 9px 15px;
-                           background: #dc3545;
-                           color: white;
-                           border: none;
-                           border-radius: 5px;
-                           cursor: pointer;">
+            <button type="submit" class="btn-logout">
                 Logout
             </button>
         </form>
-    </nav>
+
+    </div>
+
 </header>
+
 
 <main>
 

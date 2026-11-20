@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,7 +9,6 @@
     <style>
         * {
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
@@ -17,75 +17,104 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f5f9fa;
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #26364d;
         }
 
         .login-container {
             width: 100%;
             max-width: 420px;
-            padding: 35px;
-            background: white;
-            border: 1px solid #d9f0f0;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            padding: 40px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(70, 90, 120, 0.08);
         }
 
         .logo {
-            color: #159a9c;
-            text-align: center;
             margin-bottom: 10px;
+            color: #111827;
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
         }
 
-        .subtitle {
+        h2 {
+            margin: 0 0 8px;
+            text-align: center;
+            color: #172b4d;
+        }
+
+        .description {
+            margin-bottom: 30px;
             color: #64748b;
             text-align: center;
-            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
+            font-size: 14px;
             font-weight: bold;
-            color: #243b53;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            padding: 13px;
+            border: 1px solid #dbe3ef;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
         }
 
-        button {
+        input:focus {
+            border-color: #111827;
+        }
+
+        .btn-login {
             width: 100%;
-            padding: 13px;
+            padding: 14px;
             border: none;
-            border-radius: 6px;
-            background: #159a9c;
+            border-radius: 10px;
+            background: #2d7ff9;
             color: white;
+            font-size: 15px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        button:hover {
-            background: #117f81;
+        .btn-login:hover {
+            background: #1d65d8;
         }
 
         .error {
-            color: #dc3545;
-            font-size: 13px;
-            margin-top: -12px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #fee2e2;
+            color: #dc2626;
+            font-size: 14px;
         }
 
         .message {
-            padding: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 10px;
             background: #e8f7f0;
             color: #16734b;
-            border-radius: 6px;
             font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 28px 22px;
+            }
         }
     </style>
 </head>
@@ -94,10 +123,12 @@
 
     <div class="login-container">
 
-        <h1 class="logo">Laundry-In</h1>
+        <div class="logo">Laundry-In</div>
 
-        <p class="subtitle">
-            Silakan login untuk mengakses sistem operasional laundry.
+        <h2>Login Admin & Petugas</h2>
+
+        <p class="description">
+            Silakan masuk untuk mengakses sistem inventaris mesin laundry.
         </p>
 
         @if (session('status'))
@@ -115,29 +146,34 @@
         <form action="{{ route('login.process') }}" method="POST">
             @csrf
 
-            <label for="email">Email</label>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Masukkan email"
-                value="{{ old('email') }}"
-                required
-                autofocus
-            >
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Masukkan email"
+                    value="{{ old('email') }}"
+                    required
+                    autofocus
+                >
+            </div>
 
-            <label for="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Masukkan password"
-                required
-            >
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Masukkan password"
+                    required
+                >
+            </div>
 
-            <button type="submit">
+            <button type="submit" class="btn-login">
                 Login
             </button>
+
         </form>
 
     </div>

@@ -11,32 +11,54 @@
 
 <body>
     <header>
-        <div class="border-LaundryIn">
-            <h2>Laundry-In</h2>
+    <!-- LOGO LAUNDRY-IN -->
+    <div class="navbar-logo">
+        <a href="/" class="logo">
+            <span class="logo-icon"></span>
+            Laundry-In
+        </a>
+    </div>
+
+    <!-- MENU NAVIGASI -->
+    <nav class="nav-menu">
+        <a href="{{ url('/') }}" class="active">Beranda</a>
+        <a href="{{ url('/bahan') }}">Bahan Pembersih</a>
+
+        <span class="disabled-link">Layanan &amp; Tarif</span>
+        <span class="disabled-link">Peralatan</span>
+        <span class="disabled-link">Data Pelanggan</span>
+    </nav>
+
+    <!-- IDENTITAS PENGGUNA -->
+    <div class="user-info">
+
+        <div class="user-avatar">
+            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
         </div>
 
-        <nav>
-            <a href="{{ url('/') }}" class="active">Beranda</a>
-            <a href="{{ url('/bahan') }}">Bahan Pembersih</a>
-            <span class="disabled-link">Layanan &amp; Tarif</span>
-            <span class="disabled-link">Peralatan</span>
-            <span class="disabled-link">Data Pelanggan</span>
+        <div class="user-detail">
+            <span class="user-name">
+                {{ Auth::user()->name }}
+            </span>
 
-            <form action="{{ route('logout') }}" method="POST"
-                style="display: inline;">
-                @csrf
+            <span class="user-role">
+                {{ ucfirst(Auth::user()->role) }}
+            </span>
+        </div>
 
-                <button type="submit"
-                        style="padding: 9px 15px;
-                            background: #dc3545;
-                            color: white;
-                            border: none;
-                            border-radius: 5px;
-                            cursor: pointer;">
-                    Logout
-                </button>
-            </form>
-        </nav>
+        <!-- LOGOUT -->
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+
+            <button type="submit" class="btn-logout">
+                Logout
+            </button>
+        </form>
+
+    </div>
+
+</header>
+
     </header>
 
     <main>
